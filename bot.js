@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const tokens = require('./tokens.json');
 const authors = ['! FS | Golden Eagle'];
 var warned = [];
 var banned = [];
