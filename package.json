@@ -1,0 +1,26 @@
+{
+  "name": "discord-anti-spam",
+  "version": "1.1.6",
+  "description": "Discord anti spam package",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "keywords": [
+    "Discord",
+    "spam",
+    "anti-spam",
+    "discord.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "homepage": "",
+  "author": "Nedal Maged",
+  "license": "",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "procfile": "^0.1.1"
+  }
+}
