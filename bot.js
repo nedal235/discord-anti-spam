@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const author = ["420227609163595777"];
-const pref = "@";
 var warned = [];
 var banned = [];
 var messagelog = [];
@@ -12,13 +11,13 @@ client.on('ready', () => {
   client.user.setGame("Dont even think to break roles", "https://www.twitch.tv/ninja");
   console.log(`${client.user.tag} running on ${client.guilds.size} guilds with ${client.users.size} users.`);
    });
-   	if (msg.content === (pref + 'st')) {
+   	if (msg.content === '@st') {
 	client.user.setGame("Dont even think to break roles", "https://www.twitch.tv/ninja");
 	} else
-	if (msg.content === (pref + 'wt')) {
+	if (msg.content === '@wt') {
 	client.user.setGame("Dont even think to break roles", {type:'WATCHING'});
 	} else
-	if (msg.content === (pref + 'ls')) {
+	if (msg.content === '@ls') {
 	client.user.setGame("Dont even think to break roles", {type:'LISTENING'});
     }
 /**
