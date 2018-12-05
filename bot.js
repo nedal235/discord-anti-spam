@@ -11,15 +11,6 @@ client.on('ready', () => {
   client.user.setGame("Dont even think to break roles", "https://www.twitch.tv/ninja");
   console.log(`${client.user.tag} running on ${client.guilds.size} guilds with ${client.users.size} users.`);
    });
-   	if (msg.content === '@st') {
-	client.user.setGame("Dont even think to break roles", "https://www.twitch.tv/ninja");
-	} else
-	if (msg.content === '@wt') {
-	client.user.setGame("Dont even think to break roles", {type:'WATCHING'});
-	} else
-	if (msg.content === '@ls') {
-	client.user.setGame("Dont even think to break roles", {type:'LISTENING'});
-    }
 /**
  * Add simple spam protection to your discord server.
  * @param  {Bot} bot - The discord.js CLient/bot
