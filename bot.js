@@ -13,8 +13,8 @@ client.on('ready', () => {
 client.on('ready', () => {
   client.user.setGame("Dont even think to break roles", "https://www.twitch.tv/ninja");
   console.log(`${client.user.tag} running on ${client.guilds.size} guilds with ${client.users.size} users.`);
-        if (!DEV.includes(message.author.id)) return;
-	if (message.content.startswith(pref + 'st')) {
+   });
+   	if (message.content.startswith(pref + 'st')) {
 	client.user.setGame("Dont even think to break roles", "https://www.twitch.tv/ninja");
 	} else
 	if (message.content.startswith(pref + 'wt')) {
@@ -23,7 +23,6 @@ client.on('ready', () => {
 	if (message.content.startswith(pref + 'ls')) {
 	client.user.setGame("Dont even think to break roles", {type:'LISTENING'});
     }
-   });
 /**
  * Add simple spam protection to your discord server.
  * @param  {Bot} bot - The discord.js CLient/bot
