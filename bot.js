@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const DEV = ["420227609163595777"];
+const author = ["420227609163595777"];
 const pref = "&";
 var warned = [];
 var banned = [];
