@@ -1,4 +1,4 @@
-const botconfig = require('botconfig.json');
+const botconfig = require("./botconfig.json");
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const author = ["420227609163595777"];
@@ -131,7 +131,7 @@ module.exports = function (bot, options) {
   }
 
 }
-    if(cmd === `${prefix}ban`){
+    if(cmd === `$ban`){
 
     let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!bUser) return message.channel.send("Can't find user!");
