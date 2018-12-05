@@ -13,13 +13,6 @@ client.on('ready', () => {
   client.user.setGame("Dont even think to break roles", "https://www.twitch.tv/ninja");
   console.log(`${client.user.tag} running on ${client.guilds.size} guilds with ${client.users.size} users.`);
    });
-/**
- * Add simple spam protection to your discord server.
- * @param  {Bot} bot - The discord.js CLient/bot
- * @param  {object} options - Optional (Custom configuarion options)
- * @return {[type]}         [description]
- */
-module.exports = function (bot, options) {
   // Set options
   const warnBuffer = (options && options.warnBuffer) || 3;
   const maxBuffer = (options && options.maxBuffer) || 5;
@@ -138,6 +131,7 @@ module.exports = function (bot, options) {
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
+	}
 	
     if(cmd === `${prefix}ban`){
 
