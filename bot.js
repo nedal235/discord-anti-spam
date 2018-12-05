@@ -4,13 +4,25 @@ const authors = ['! FS | Golden Eagle'];
 var warned = [];
 var banned = [];
 var messagelog = [];
+const pref = "&";
 
 client.on('ready', () => {
   console.log('BOT STARTED UP!');
 });
 
 client.on('ready', () => {
-  client.user.setGame("Dont even think to break roles", "https://www.twitch.tv/ninja");
+	if (message.content.startswith(pref + 'st')) {
+	client.user.setGame("Dont even think to break roles", "https://www.twitch.tv/ninja");
+	message.channel.send(Done);
+	} else
+	if (message.content.startswith(pref + 'wt')) {
+	client.user.setGame("Dont even think to break roles", {type:'WATCHING'});
+	message.channel.send(Done);
+	} else
+	if (message.content.startswith(pref + 'ls')) {
+	client.user.setGame("Dont even think to break roles", {type:'LISTENING'});
+	message.channel.send(Done);
+	} else
   console.log(`${client.user.tag} running on ${client.guilds.size} guilds with ${client.users.size} users.`);
 });
 /**
@@ -53,7 +65,7 @@ module.exports = function (bot, options) {
       });
 
       // Check how many times the same message has been sent.
-      var msgMatch = 0;
+      var msgMatch = 5;
       for (var i = 0; i < messagelog.length; i++) {
         if (messagelog[i].message == msg.content && (messagelog[i].author == msg.author.id) && (msg.author.id !== bot.user.id)) {
           msgMatch++;
