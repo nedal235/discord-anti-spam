@@ -6,11 +6,9 @@ var warned = [];
 var banned = [];
 var messagelog = [];
 
-client.on('ready', () => {
-  console.log('BOT STARTED UP!');
-});
 
 client.on('ready', () => {
+  console.log('BOT STARTED UP!');
   client.user.setGame("Dont even think to break roles", "https://www.twitch.tv/ninja");
   console.log(`${client.user.tag} running on ${client.guilds.size} guilds with ${client.users.size} users.`);
    });
