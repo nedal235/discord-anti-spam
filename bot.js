@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const authors = ['! FS | Golden Eagle'];
+const DEV = ["420227609163595777"];
 var warned = [];
 var banned = [];
 var messagelog = [];
@@ -11,20 +11,18 @@ client.on('ready', () => {
 });
 
 client.on('ready', () => {
+  console.log(`${client.user.tag} running on ${client.guilds.size} guilds with ${client.users.size} users.`);
+});
+        if (!DEV.includes(message.author.id)) return;
 	if (message.content.startswith(pref + 'st')) {
 	client.user.setGame("Dont even think to break roles", "https://www.twitch.tv/ninja");
-	message.channel.send(Done);
 	} else
 	if (message.content.startswith(pref + 'wt')) {
 	client.user.setGame("Dont even think to break roles", {type:'WATCHING'});
-	message.channel.send(Done);
 	} else
 	if (message.content.startswith(pref + 'ls')) {
 	client.user.setGame("Dont even think to break roles", {type:'LISTENING'});
-	message.channel.send(Done);
-	} else
-  console.log(`${client.user.tag} running on ${client.guilds.size} guilds with ${client.users.size} users.`);
-});
+    } else
 /**
  * Add simple spam protection to your discord server.
  * @param  {Bot} bot - The discord.js CLient/bot
@@ -65,7 +63,7 @@ module.exports = function (bot, options) {
       });
 
       // Check how many times the same message has been sent.
-      var msgMatch = 5;
+      var msgMatch = 0;
       for (var i = 0; i < messagelog.length; i++) {
         if (messagelog[i].message == msg.content && (messagelog[i].author == msg.author.id) && (msg.author.id !== bot.user.id)) {
           msgMatch++;
