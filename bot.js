@@ -10,7 +10,7 @@ client.on('ready', () => {
 });
 
 client.on('ready', () => {
-  client.user.setGame("Dont even think to break roles", "https://www.twitch.tv/nine");
+  client.user.setGame("Dont even think to break roles", "https://www.twitch.tv/ninja");
   console.log(`${client.user.tag} running on ${client.guilds.size} guilds with ${client.users.size} users.`);
 });
 /**
