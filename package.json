@@ -1,26 +1,22 @@
 {
-  "name": "discord-anti-spam",
-  "version": "1.1.6",
-  "description": "Discord anti spam package",
+  "name": "blssec",
+  "version": "1.0.0",
+  "description": "BLS SECURITY",
   "main": "bot.js",
   "scripts": {
-    "start": "node bot.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "Discord",
-    "spam",
-    "anti-spam",
-    "discord.js"
-  ],
+  "author": "nedal",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.4.2"
+  },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/nedal235/discord-anti-spam.git"
   },
-  "homepage": "",
-  "author": "Nedal Maged",
-  "license": "",
-  "dependencies": {
-    "discord.js": "^11.4.2",
-    "procfile": "^0.1.1"
-  }
+  "bugs": {
+    "url": "https://github.com/nedal235/discord-anti-spam/issues"
+  },
+  "homepage": "https://github.com/nedal235/discord-anti-spam#readme"
 }
