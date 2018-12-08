@@ -35,7 +35,7 @@ bot.on("message", async message => {
     .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
     .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
     .addField("Kicked In", message.channel)
-    .addField("Tiime", message.createdAt)
+    .addField("Time", message.createdAt)
     .addField("Reason", kReason);
 
     let kickChannel = message.guild.channels.find(`name`, "cmd-commands");
@@ -107,6 +107,12 @@ bot.on("message", async message => {
     .addField("Created On", bot.user.createdAt);
 
     return message.channel.send(botembed);
+  }
+  if(cmd === `${prefix}st`){
+
+    bot.user.setGame("Dont even think to break roles", "https://www.twitch.tv/ninja");
+
+    return message.channel.send("botembed");
   }
 
 });
