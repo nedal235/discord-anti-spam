@@ -5,8 +5,7 @@ const bot = new Discord.Client({disableEveryone: true});
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
-
-  bot.user.setGame("Dont even think to break roles", "https://www.twitch.tv/ninja");
+;
 
 });
 
