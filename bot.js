@@ -125,7 +125,7 @@ bot.on("message", async message => {
 
     return message.channel.send("Done");
   }
-    if(cmd === `${prefix}wt`){
+    if(cmd === `${prefix}pl`){
 
     bot.user.setGame("Dont even think to break roles");
 
