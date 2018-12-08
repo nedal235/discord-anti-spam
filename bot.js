@@ -112,7 +112,19 @@ bot.on("message", async message => {
 
     bot.user.setGame("Dont even think to break roles", "https://www.twitch.tv/ninja");
 
-    return message.channel.send("botembed");
+    return message.channel.send("Done");
+  }
+  if(cmd === `${prefix}ls`){
+
+    bot.user.setGame("Dont even think to break roles", {type:'LISTENING'});
+
+    return message.channel.send("Done");
+  }
+    if(cmd === `${prefix}wt`){
+
+    bot.user.setGame("Dont even think to break roles", {type:'WATCHING'});
+
+    return message.channel.send("Done");
   }
 
 });
