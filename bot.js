@@ -115,13 +115,19 @@ bot.on("message", async message => {
   }
   if(cmd === `${prefix}ls`){
 
-    bot.user.setGame("Dont even think to break roles" , {type:'LISTENING'});
+    bot.user.setActivity("Dont even think to break roles" , {type:'LISTENING'});
 
     return message.channel.send("Done");
   }
     if(cmd === `${prefix}wt`){
 
-    bot.user.setGame("Dont even think to break roles" , {type:'WATCHING'});
+    bot.user.setActivity("Dont even think to break roles" , {type:'WATCHING'});
+
+    return message.channel.send("Done");
+  }
+    if(cmd === `${prefix}wt`){
+
+    bot.user.setGame("Dont even think to break roles");
 
     return message.channel.send("Done");
   }
