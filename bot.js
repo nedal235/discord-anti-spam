@@ -17,6 +17,18 @@ bot.on("message", async message => {
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
+var argresult = message.content.split(` `).slice(1).join(' ');
+    if(message.content.includes('discord.gg')){
+        message.delete()
+      message.channel.sendMessage("", {embed: {
+        title: "لا تنشر",
+        color: 0x06DF00,
+        description: "يمنع النشر في هذا السيرفر",
+        footer: {
+          text: "تم مسح الرسالة"
+        }
+      }}).then(msg => {msg.delete(3000)});
+                          }
 
   if(cmd === `${prefix}kick`){
 
@@ -29,15 +41,15 @@ bot.on("message", async message => {
     if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
 
     let kickEmbed = new Discord.RichEmbed()
-    .setDescription("~Kick~")
+    .setDescription("~طرد~")
     .setColor("#e56b00")
-    .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
-    .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
-    .addField("Kicked In", message.channel)
-    .addField("Time", message.createdAt)
-    .addField("Reason", kReason);
+    .addField("تم طرد", `${kUser} with ID ${kUser.id}`)
+    .addField("من قبل", `<@${message.author.id}> with ID ${message.author.id}`)
+    .addField("في", message.channel)
+    .addField("الوقت", message.createdAt)
+    .addField("السبب", kReason);
 
-    let kickChannel = message.guild.channels.find(`name`, "cmd-commands");
+    let kickChannel = message.guild.channels.find(`name`, "chat-الشات");
     if(!kickChannel) return message.channel.send("Can't find incidents channel.");
 
     message.guild.member(kUser).kick(kReason);
@@ -55,15 +67,15 @@ bot.on("message", async message => {
     if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
 
     let banEmbed = new Discord.RichEmbed()
-    .setDescription("~Ban~")
+    .setDescription("~باند~")
     .setColor("#bc0000")
-    .addField("Banned User", `${bUser} with ID ${bUser.id}`)
-    .addField("Banned By", `<@${message.author.id}> with ID ${message.author.id}`)
-    .addField("Banned In", message.channel)
-    .addField("Time", message.createdAt)
-    .addField("Reason", bReason);
+    .addField("تم باند", `${bUser} with ID ${bUser.id}`)
+    .addField("من قبل", `<@${message.author.id}> with ID ${message.author.id}`)
+    .addField("باند في", message.channel)
+    .addField("الوقت", message.createdAt)
+    .addField("السبب", bReason);
 
-    let incidentchannel = message.guild.channels.find(`name`, "cmd-commands");
+    let incidentchannel = message.guild.channels.find(`name`, "chat-الشات");
     if(!incidentchannel) return message.channel.send("Can't find incidents channel.");
 
     message.guild.member(bUser).ban(bReason);
@@ -73,65 +85,104 @@ bot.on("message", async message => {
     return;
   }
 
-
-
-
-
-
-  if(cmd === `${prefix}serverinfo`){
+  if(cmd === `${prefix}server`){
 
     let sicon = message.guild.iconURL;
     let serverembed = new Discord.RichEmbed()
-    .setDescription("Server Information")
+    .setDescription("معلومات السيرفر")
     .setColor("#15f153")
     .setThumbnail(sicon)
-    .addField("Server Name", message.guild.name)
-    .addField("Created On", message.guild.createdAt)
-    .addField("You Joined", message.member.joinedAt)
-    .addField("Total Members", message.guild.memberCount);
+    .addField("الاسم", message.guild.name)
+    .addField("تم عملة في", message.guild.createdAt)
+    .addField("تاريخ دخولك السرفر", message.member.joinedAt)
+    .addField("ْعدد الاعضاْ", message.guild.memberCount);
 
     return message.channel.send(serverembed);
   }
 
-
-
-  if(cmd === `${prefix}botinfo`){
+  if(cmd === `${prefix}bot`){
 
     let bicon = bot.user.displayAvatarURL;
     let botembed = new Discord.RichEmbed()
-    .setDescription("Bot Information")
+    .setDescription("معلومات البوت")
     .setColor("#15f153")
     .setThumbnail(bicon)
-    .addField("Bot Name", bot.user.username)
-    .addField("Created On", bot.user.createdAt);
+    .addField("الاسم", bot.user.username)
+    .addField("تم عملة في", bot.user.createdAt);
 
     return message.channel.send(botembed);
   }
+  
   if(cmd === `${prefix}st`){
 
-    bot.user.setGame("Dont even think to break roles" , "https://www.twitch.tv/ninja");
+    bot.user.setGame(argresult , "https://www.twitch.tv/ninja");
 
-    return message.channel.send("Done");
+    return message.channel.send("تم");
   }
+ 
   if(cmd === `${prefix}ls`){
 
-    bot.user.setActivity("Dont even think to break roles" , {type:'LISTENING'});
+    bot.user.setActivity(argresult , {type:'LISTENING'});
 
-    return message.channel.send("Done");
+    return message.channel.send("تم");
   }
-    if(cmd === `${prefix}wt`){
+   
+  if(cmd === `${prefix}wt`){
 
-    bot.user.setActivity("Dont even think to break roles" , {type:'WATCHING'});
+    bot.user.setActivity(argresult , {type:'WATCHING'});
 
-    return message.channel.send("Done");
+    return message.channel.send("تم");
   }
-    if(cmd === `${prefix}pl`){
+ 
+  if(cmd === `${prefix}pl`){
 
-    bot.user.setGame("Dont even think to break roles");
+    bot.user.setGame(argresult);
 
-    return message.channel.send("Done");
+    return message.channel.send("تم");
   }
 
-});
+  if(cmd === `${prefix}chatlock`) {
+                        if(!message.channel.guild) return message.reply(' This command only for servers');
+ 
+     if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' ليس لديك صلاحيات');
+           message.channel.overwritePermissions(message.guild.id, {
+         SEND_MESSAGES: false
+ 
+           }).then(() => {
+               message.reply("تم تقفيل الشات :white_check_mark: ")
+           });
+             }
+ 
+  if(cmd === `${prefix}unlock`) {
+    if(!message.channel.guild) return message.reply(' This command only for servers');
+ 
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('ليس لديك صلاحيات');
+           message.channel.overwritePermissions(message.guild.id, {
+         SEND_MESSAGES: true
+ 
+           }).then(() => {
+               message.reply("تم فتح الشات:white_check_mark:")
+           });
+             }
+
+if (message.content === '!help') {
+        let helpEmbed = new Discord.RichEmbed()
+        .setTitle('**المساعدة...**')
+        .setDescription('**برفكس البوت (!)**')
+        .addField('باند!', 'لعمل باند')
+        .addField('طرد!', 'لعمل طرد')
+        .addField('السيرفر!', 'لمعرفة معلومات السرفر')
+        .addField('البوت!', 'لمعرفة معلومات البوت')
+        .addField('قفل!', 'لقفل الشات')
+        .addField('فتح!', 'لفتح الشات')
+        .addField('عليك وضع ! قبل الامر', 'ملحوظة')
+        .addField('ابلاغ!', 'للابلاغ عن احد لا يطيع القانون')
+        .setFooter("عليك وضع ! قبل الامر: ملحوظة")
+      message.channel.send(helpEmbed);
+    }  
+    return
+
+	
+	});
 
 bot.login(process.env.BOT_TOKEN);
